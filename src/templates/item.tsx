@@ -115,7 +115,7 @@ const Item: Template<TemplateRenderProps> = ({
                   <div className="section">
                     <div className="prose prose-a:text-blue-600">
                       <h2>New RTD v2 Component</h2>
-                      <LexicalRichText serializedAST={JSON.stringify(c_richTextDescriptionV2)}/>
+                      <LexicalRichText serializedAST={JSON.stringify(c_richTextDescriptionV2.json)}/>
                     </div>
                   </div>
                 }            
