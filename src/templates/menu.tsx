@@ -14,6 +14,7 @@ import {
   HeadConfig,
 } from "@yext/pages";
 import { Image } from "@yext/pages/components";
+import MarkdownToJsx from 'markdown-to-jsx';
 
 
 export const config: TemplateConfig = {
@@ -34,6 +35,8 @@ export const config: TemplateConfig = {
       "c_relatedMenuItems.slug",
       "c_relatedMenuItems.photoGallery",
       "c_relatedMenuItems.richTextDescription",
+      "c_relatedMenuItems.c_richTextDescriptionV2",
+      "c_relatedMenuItems.c_markdown",
       "c_relatedMenuItems.c_itemCategory",
     ],
     localization: {
@@ -100,8 +103,8 @@ const Menu: Template<TemplateRenderProps> = ({
    });
  
    const tacoDivs = tacos.map((item:any, key:number) => (
-      <div key={key} className="card p-5 border-2 rounded-xl space-y-3 bg-gray-100 drop-shadow-md">
-        <a href={item.slug}>
+      <div key={key} className="card p-5 border-2 rounded-xl bg-gray-100 drop-shadow-md">
+        <a href={item.slug} className="space-y-3">
             <Image
                 className="rounded-xl w-100 h-auto"
                 image={item.photoGallery[0].image}
@@ -110,13 +113,18 @@ const Menu: Template<TemplateRenderProps> = ({
             <div className="name pt-2 text-2xl text-center font-bold">{item.name}
                 <span className="italic text-xl font-normal"> - ${item.price.value}</span>
             </div>
+            {item.richTextDescription && 
+                  <div className="prose prose-a:text-blue-600">
+                    <MarkdownToJsx className="space-y-5">{item.richTextDescription}</MarkdownToJsx>
+                  </div>
+            } 
         </a>
       </div>
   ));
  
    const quesadillaDivs = quesadillas.map((item:any, key:number) => (
-      <div key={key} className="card p-5 border-2 rounded-xl space-y-3 bg-gray-100 drop-shadow-md">
-        <a href={item.slug}>
+      <div key={key} className="card p-5 border-2 rounded-xl bg-gray-100 drop-shadow-md">
+        <a href={item.slug} className="space-y-3">
             <Image
                 className="rounded-xl w-100 h-auto"
                 image={item.photoGallery[0].image}
@@ -124,14 +132,19 @@ const Menu: Template<TemplateRenderProps> = ({
             />
             <div className="name pt-2 text-2xl text-center font-bold">{item.name}
                 <span className="italic text-xl font-normal"> - ${item.price.value}</span>
-            </div>        
+            </div>  
+            {item.richTextDescription && 
+                  <div className="prose prose-a:text-blue-600">
+                    <MarkdownToJsx className="space-y-5">{item.richTextDescription}</MarkdownToJsx>
+                  </div>
+            }       
         </a>
       </div>
   ));
  
    const drinkDivs = drinks.map((item:any, key:number) => (
-      <div key={key} className="card p-5 border-2 rounded-xl space-y-3 bg-gray-100 drop-shadow-md">
-        <a href={item.slug}>
+      <div key={key} className="card p-5 border-2 rounded-xl bg-gray-100 drop-shadow-md">
+        <a href={item.slug} className="space-y-3">
             <Image
                 className="rounded-xl w-100 h-auto"
                 image={item.photoGallery[0].image}
@@ -139,7 +152,12 @@ const Menu: Template<TemplateRenderProps> = ({
             />
             <div className="name pt-2 text-2xl text-center font-bold">{item.name}
                 <span className="italic text-xl font-normal"> - ${item.price.value}</span>
-            </div>        
+            </div>    
+            {item.richTextDescription && 
+                  <div className="prose prose-a:text-blue-600">
+                    <MarkdownToJsx className="space-y-5">{item.richTextDescription}</MarkdownToJsx>
+                  </div>
+            }     
         </a>
       </div>
   ));

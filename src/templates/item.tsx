@@ -14,6 +14,7 @@ import {
 } from "@yext/pages";
 import { Image } from "@yext/pages/components";
 import { Markdown, LexicalRichText } from "@yext/react-components";
+import MarkdownToJsx from 'markdown-to-jsx';
 
 
 export const config: TemplateConfig = {
@@ -106,19 +107,25 @@ const Item: Template<TemplateRenderProps> = ({
                     image={photoGallery[0].image}
                     layout="fill"
                 />
-                {c_markdown && 
+                {richTextDescription && 
+                  <div className="prose prose-a:text-blue-600">
+                    <h2>Description</h2>
+                    <MarkdownToJsx className="space-y-5">{richTextDescription}</MarkdownToJsx>
+                  </div>
+                }  
+                {/* {c_markdown && 
                 <div className="prose prose-a:text-blue-600">
                   <h2>New Markdown Component</h2>
                   <Markdown content={c_markdown.markdown}/>
-                </div>}  
-                {c_richTextDescriptionV2 && 
+                </div>}   */}
+                {/* {c_richTextDescriptionV2 && 
                   <div className="section">
                     <div className="prose prose-a:text-blue-600">
                       <h2>New RTD v2 Component</h2>
                       <LexicalRichText serializedAST={JSON.stringify(c_richTextDescriptionV2.json)}/>
                     </div>
                   </div>
-                }            
+                }             */}
             </div>
           </div>
         </div>
