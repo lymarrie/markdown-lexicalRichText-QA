@@ -105,11 +105,15 @@ const Menu: Template<TemplateRenderProps> = ({
    const tacoDivs = tacos.map((item:any, key:number) => (
       <div key={key} className="card p-5 border-2 rounded-xl bg-gray-100 drop-shadow-md">
         <a href={item.slug} className="space-y-3">
-            <Image
+           {photoGallery ?
+              <img src="https://i0.wp.com/theperfectroundgolf.com/wp-content/uploads/2022/04/placeholder.png?fit=1200%2C800&ssl=1"></img>
+              :
+              <Image
                 className="rounded-xl w-100 h-auto"
                 image={item.photoGallery[0].image}
                 layout="fill"
-            />
+              /> 
+              }
             <div className="name pt-2 text-2xl text-center font-bold">{item.name}
                 <span className="italic text-xl font-normal"> - ${item.price.value}</span>
             </div>
@@ -125,11 +129,15 @@ const Menu: Template<TemplateRenderProps> = ({
    const quesadillaDivs = quesadillas.map((item:any, key:number) => (
       <div key={key} className="card p-5 border-2 rounded-xl bg-gray-100 drop-shadow-md">
         <a href={item.slug} className="space-y-3">
-            <Image
+            {photoGallery ?
+              <img src="https://i0.wp.com/theperfectroundgolf.com/wp-content/uploads/2022/04/placeholder.png?fit=1200%2C800&ssl=1"></img>
+              :
+              <Image
                 className="rounded-xl w-100 h-auto"
                 image={item.photoGallery[0].image}
                 layout="fill"
-            />
+              /> 
+              }
             <div className="name pt-2 text-2xl text-center font-bold">{item.name}
                 <span className="italic text-xl font-normal"> - ${item.price.value}</span>
             </div>  
@@ -145,11 +153,15 @@ const Menu: Template<TemplateRenderProps> = ({
    const drinkDivs = drinks.map((item:any, key:number) => (
       <div key={key} className="card p-5 border-2 rounded-xl bg-gray-100 drop-shadow-md">
         <a href={item.slug} className="space-y-3">
-            <Image
+            {photoGallery ?
+              <img src="https://i0.wp.com/theperfectroundgolf.com/wp-content/uploads/2022/04/placeholder.png?fit=1200%2C800&ssl=1"></img>
+              :
+              <Image
                 className="rounded-xl w-100 h-auto"
                 image={item.photoGallery[0].image}
                 layout="fill"
-            />
+              /> 
+              }
             <div className="name pt-2 text-2xl text-center font-bold">{item.name}
                 <span className="italic text-xl font-normal"> - ${item.price.value}</span>
             </div>    
