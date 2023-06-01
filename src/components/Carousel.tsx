@@ -90,7 +90,7 @@ const Carousel = (props) => {
     photoGallery = photoGallery.concat(dummyPhotos);
   } 
   console.log("photo gallery array after manipulation");
-  console.log(photoGallery.length);
+  console.log(photoGallery);
   const photoDivs = photoGallery.map((e) => (
     <div key={e.image.url} className="self-center px-2">
       <a href={e.image.url} target="_blank" rel="noreferrer">
