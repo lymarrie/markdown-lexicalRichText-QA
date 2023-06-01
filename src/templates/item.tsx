@@ -97,14 +97,6 @@ const Item: Template<TemplateRenderProps> = ({
     c_itemCategory
    } = document;
 
-   var settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1
-  };
-
   return (
     <>
       <PageLayout>
@@ -113,15 +105,17 @@ const Item: Template<TemplateRenderProps> = ({
           <div className="section space-y-14 px-10">
             <h2 className="section text-3xl text-center font-bold">{name} (${price.value})</h2>
             <div className="grid md:grid-cols-2 gap-x-5">
-              {photoGallery ?
-                <img src="https://i0.wp.com/theperfectroundgolf.com/wp-content/uploads/2022/04/placeholder.png?fit=1200%2C800&ssl=1"></img>
-                :
+              {photoGallery ? (
                 <Image
-                      className="rounded-xl w-100 h-auto drop-shadow-lg"
-                      image={photoGallery[0].image}
-                      layout="fill"
-                  />
-                }
+                className="rounded-xl w-100 h-auto drop-shadow-lg"
+                image={photoGallery[0].image}
+                layout="fill"
+                />
+                )
+                : (
+                  <img src="https://i0.wp.com/theperfectroundgolf.com/wp-content/uploads/2022/04/placeholder.png?fit=1200%2C800&ssl=1"></img>
+                )
+              }
                 {richTextDescription && 
                   <div className="prose prose-a:text-blue-600">
                     <h2>Description</h2>

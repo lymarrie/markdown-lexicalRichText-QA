@@ -82,7 +82,9 @@ const Carousel = (props) => {
         }
     }
   ];
-  if (photoGallery.length == 1) {
+  if (!photoGallery) {
+    photoGallery = dummyPhotos;
+  } else if (photoGallery.length = 1) {
     photoGallery = photoGallery.concat(dummyPhotos);
   }
   console.log(photoGallery);
