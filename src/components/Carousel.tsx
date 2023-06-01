@@ -86,7 +86,7 @@ const Carousel = (props) => {
   ];
   if (!photoGallery) {
     photoGallery = dummyPhotos;
-  } else if (photoGallery.length = 1) {
+  } else if (photoGallery.length == 1) {
     photoGallery = photoGallery.concat(dummyPhotos);
   } 
   console.log("photo gallery array after manipulation");
