@@ -96,6 +96,7 @@ const Item: Template<TemplateRenderProps> = ({
     c_relatedMenu,
     c_itemCategory
    } = document;
+   console.log("photo gallery array before manipulation");
    console.log(photoGallery);
 
   return (
