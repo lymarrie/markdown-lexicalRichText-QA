@@ -1,6 +1,7 @@
 import * as React from "react";
 import PageLayout from "../components/PageLayout";
 import Banner from "../components/Banner";
+import Carousel from "../components/Carousel";
 import Favicon from "../assets/images/yext-favicon.ico";
 import "../index.css";
 import {
@@ -15,7 +16,10 @@ import {
 import { Image } from "@yext/pages/components";
 import { Markdown, LexicalRichText } from "@yext/react-components";
 import MarkdownToJsx from 'markdown-to-jsx';
-
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { BiCaretRightCircle, BiCaretLeftCircle } from "react-icons/bi";
 
 export const config: TemplateConfig = {
   stream: {
@@ -93,6 +97,13 @@ const Item: Template<TemplateRenderProps> = ({
     c_itemCategory
    } = document;
 
+   var settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  };
 
   return (
     <>
@@ -103,7 +114,7 @@ const Item: Template<TemplateRenderProps> = ({
             <h2 className="section text-3xl text-center font-bold">{name} (${price.value})</h2>
             <div className="grid md:grid-cols-2 gap-x-5">
                 <Image
-                    className="rounded-xl w-100 h-auto"
+                    className="rounded-xl w-100 h-auto drop-shadow-lg"
                     image={photoGallery[0].image}
                     layout="fill"
                 />
@@ -127,6 +138,10 @@ const Item: Template<TemplateRenderProps> = ({
                   </div>
                 }             */}
             </div>
+          </div>
+          <div className="section">
+            <h2 className="section text-3xl text-center font-bold">Photo Gallery</h2>
+            <Carousel photoGallery={photoGallery}></Carousel>
           </div>
         </div>
       </PageLayout>
