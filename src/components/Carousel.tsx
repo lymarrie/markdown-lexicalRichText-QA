@@ -50,6 +50,8 @@ const NextArrow = ({ className, style, onClick }: ArrowProps) => {
 
 const Carousel = (props) => {
   var { photoGallery } = props;
+  // console.log(photoGallery);
+  // console.log(photoGallery.length);
   let dummyPhotos = [
     {
         "description": "Placeholder Image",
@@ -82,12 +84,12 @@ const Carousel = (props) => {
         }
     }
   ];
+  // console.log(photoGallery.length);
   if (!photoGallery) {
     photoGallery = dummyPhotos;
   } else if (photoGallery.length = 1) {
     photoGallery = photoGallery.concat(dummyPhotos);
-  }
-  console.log(photoGallery);
+  } 
   const photoDivs = photoGallery.map((e) => (
     <div key={e.image.url} className="self-center px-2">
       <a href={e.image.url} target="_blank" rel="noreferrer">
